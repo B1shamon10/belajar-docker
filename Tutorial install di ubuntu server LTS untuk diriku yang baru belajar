@@ -1,0 +1,24 @@
+<-- -->
+<-- pertama masuk sebagai administrator dan update sistem operasimu -->
+apt update
+<-- instal package yang dibutuhkan sebelum mulai menginstal skrip Docker -->
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+keterangan  - apt-transport-https – memungkinkan package manager mentransfer file dan data melalui https
+            - ca-certificates – web browser dan sistem akan mengecek sertifikat keamanan
+            - curl – mentransfer data
+            - software-properties-common – menambahkan skrip untuk mengelola software
+
+<-- Kemudian masukkan GPG key dengan menjalankan command berikut -->
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+<-- Tambahkan repositori Docker ke sumber APT -->
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+<-- Jangan lupa update sistem operasi kamu -->
+apt update
+<-- Pastikan kembali repositori yang di install itu docker, bukan ubuntunya-->
+apt-cache policy docker-ce
+<-- Akhirnya install docker nya dengan perintah -->
+apt install docker-ce
+<-- Cek status dockernya dengan comand systemctl-->
+systemctl status docker
+<-- Selesai, sekarang docker sudah selesai diinstall, anda dapat memulai eksplorasi menggunakan docker dengan bantuan -->
+docker --help
