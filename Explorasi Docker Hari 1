@@ -1,1 +1,31 @@
+<-- -->
+<-- pertama kita cari image yang ingin kita gunakan, contoh yang saya gunakan yaitu ubuntu dan nginx:stable(versi stable) dengan perintah -->
+docker pull ubuntu
+<-- Untuk perintah diatas, akan mengambil versi yang lates atau terbaru-->
+docker pull nginx:stable
+
+<-- Kemudian untuk menjalankan images yang baru kita download, dapat menggunakan perintah -->
+<-- docker run -it nama_image -->
+<-- (-i dan -t untuk memberi saya akses ke shell interaktiv dalam kontainer yang kita run) -->
+docker run -it ubuntu
+
+<-- Untuk mencek kontainer yang sudah kita jalankan tadi, gunakan perintah -->
+docker ps -a
+<-- Maka akan tampil semua kontainer yang sedang berjalan di VM -->
+
+<-- kemudian kita akan masuk sebagai root dengan id yang akan di generate oleh ubuntunya. tampilannya akan seperti di bawah ini -->
+root@2f074bc49eed:/# 
+<-- Untuk keluar bisa menggunakan perintah "exit", dan akan kembali ke direktori asal -->
+root@testing:/home/bien#
+<-- Untuk masuk kembali ke kontainer yang baru saja kita keluarkan, gunakan perintah -->
+<-- docker exec -it id/nama_kontainer command nya --> 
+
+docker exec -it beautiful_raman /bin/bash
+
+<-- untuk contoh nginx:stable nya kita gunakan perintah -->
+docker run -itd --name web-server-nginx-stable -p 8080:80 nginx:stable
+<-- Dimana keterangannya -itd itu untuk opsi nya, --name untuk menentukan namanya (web-server-nginx-stable), dan -p untuk port yang akan digunakan -->
+
+<-- Untuk menghapus kontainer yang tidak digunakan lagi, gunakan perintah -->
+docker rm nama_image/container_id
 
